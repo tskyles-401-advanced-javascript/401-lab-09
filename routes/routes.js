@@ -46,7 +46,13 @@ router.delete('/api/v1/:model/:id', handleDelete);
  */
 function handleGetAll(req, res, next){
   req.model.get()
-    .then(records => res.status(200).json(records))
+    .then(records => {
+      const output = {
+        count: records.length,
+        results: records,
+      };
+      res.status(200).json(output);
+    })
     .catch(next);
 }
 /**
@@ -71,7 +77,7 @@ function handleGetOne(req, res, next){
  */
 function handlePost(req, res, next){
   req.model.post(req.body)
-    .then(result => res.json(result))
+    .then(result => res.status(200).json(result))
     .catch(next);
 }
 /**
