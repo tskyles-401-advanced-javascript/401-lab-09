@@ -8,10 +8,11 @@
 * [submission PR](https://github.com/tskyles-401-advanced-javascript/401-lab-09/pull/1)
 * [travis](http://xyz.com)
 * [back-end](https://lab-09-401-tskyles.herokuapp.com/)
+* [mongo-model npm](https://www.npmjs.com/package/@tskyles/mongo-model)
 
 #### Documentation
-* [api docs](https://lab-09-401-tskyles.herokuapp.com/ap1/v1/docs)
-* Run /docs/global.html with liver server to view jsdocs
+* [api docs](https://lab-09-401-tskyles.herokuapp.com/api-docs)
+* Run /docs/global.html with live server to view jsdocs
 
 ### Setup
 #### `.env` requirements
@@ -19,10 +20,23 @@
 * `MONGODB_URI` - URL to the running mongo instance/db
 
 #### How to initialize/run your server app (where applicable)
-* npm start
+* Start App: `npm start`
+* Endpoint: /api-docs
+  * Returns api-documentation
+* Endpoint: /docs
+  * Returns JSdocs
+* Endpoint: /api/v1/products
+  * Returns all products
+* Endpoint: /api/v1/products/:id
+  * Returns specific products
+* Endpoint: /api/v1/categories
+  * Returns all categories
+* Endpoint: /api/v1/categories/:id
+  * Returns specific category
   
 #### Tests
-* npm test __tests__
+* Unit Tests: `npm test`
+* Eslint: `npm run lint`
 
 #### UML
 ![](./assets/lab-09.jpg)

@@ -2,6 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json');
 
 const categories = require('../lib/models/categories-model');
 const products = require('../lib/models/products-model');
@@ -36,6 +38,8 @@ router.post('/api/v1/:model', handlePost);
 router.get('/api/v1/:model/:id', handleGetOne);
 router.put('/api/v1/:model/:id', handlePut);
 router.delete('/api/v1/:model/:id', handleDelete);
+router.use('/api-docs', swaggerUi.serve);
+router.get('/api-docs', swaggerUi.setup(swaggerDocument));
 /**
  * get all documents in this route
  * @function handleGetAll
