@@ -1,0 +1,32 @@
+{
+  "name": "401-lab-09",
+  "version": "1.0.0",
+  "description": "API server",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tskyles-401-advanced-javascript/401-lab-09.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tskyles-401-advanced-javascript/401-lab-09/issues"
+  },
+  "homepage": "https://github.com/tskyles-401-advanced-javascript/401-lab-09#readme",
+  "dependencies": {
+    "@code-fellows/supergoose": "^1.0.1",
+    "@tskyles/mongo-model": "^1.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.8.7",
+    "morgan": "^1.9.1"
+  }
+}
