@@ -15,7 +15,7 @@ const products = require('../lib/models/products-model');
  */
 function getModel(req, res, next){
   let model = req.params.model;
-
+  console.log(model);
   switch(model){
   case 'categories':
     req.model = categories;
@@ -70,8 +70,8 @@ function handleGetOne(req, res, next){
  * @param {*} next
  */
 function handlePost(req, res, next){
-  req.model.post()
-    .then(result => res.status(200).json(result))
+  req.model.post(req.body)
+    .then(result => res.json(result))
     .catch(next);
 }
 /**
