@@ -11,10 +11,8 @@ describe('categories routes', () => {
     return mockRequest.post('/api/v1/categories')
       .send(obj)
       .then(results => {
-        console.log(results.body);
         return mockRequest.get('/api/v1/categories')
           .then(data => {
-            console.log(data.body);
             Object.keys(obj).forEach(key => {
               expect(data.body.results[0][key]).toEqual(obj[key]);
             });
@@ -22,7 +20,7 @@ describe('categories routes', () => {
       });
   });
 
-  xit('should get() a categories', () => {
+  it('should get() a categories', () => {
     const obj = { name: 'test' };
     return mockRequest.post('/api/v1/categories')
       .send(obj)
@@ -36,7 +34,7 @@ describe('categories routes', () => {
       });
   });
 
-  xit('should post a categories', () => {
+  it('should post a categories', () => {
     const obj = { name: 'test' };
     return mockRequest.post('/api/v1/categories')
       .send(obj)
@@ -47,7 +45,7 @@ describe('categories routes', () => {
       });
   });
 
-  xit('should update a categories', () => {
+  it('should update a categories', () => {
     const obj = { name: 'test' };
     const updated = { name: 'newTest'};
 
@@ -57,7 +55,6 @@ describe('categories routes', () => {
         return mockRequest.put(`/api/v1/categories/${results.body._id}`)
           .send(updated)
           .then(data => {
-            console.log(data.body);
             Object.keys(updated).forEach(key => {
               expect(data.body[key]).toEqual(updated[key]);
             });
@@ -65,16 +62,17 @@ describe('categories routes', () => {
       });
   });
 
-  xit('should delete a categories', () => {
+  it('should delete a categories', () => {
     const obj = { name: 'test' };
     return mockRequest.post('/api/v1/categories')
       .send(obj)
       .then(results => {
-        return mockRequest.delete(`/api/v1/categories/${results.body.id}`)
-          .then(data => {
-            Object.keys(obj).forEach(key => {
-              expect(data.body[key]).not.toEqual(obj[key]);
-            });
+        return mockRequest.delete(`/api/v1/categories/${results.body._id}`)
+          .then(results => {
+            return mockRequest.get(`/api/v1/categories/${results.body._id}`)
+              .then(data => {
+                expect(data.body).toBeNull;
+              });
           });
       });
   });

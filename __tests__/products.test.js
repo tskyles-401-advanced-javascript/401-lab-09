@@ -7,7 +7,7 @@ const mockRequest = supergoose(server);
 describe('product routes', () => {
 
   it('should get() products', () => {
-    const obj = { name: 'test', quantity: 10 };
+    const obj = { name: 'test', quantity: 10, category: 'test' };
     return mockRequest.post('/api/v1/products')
       .send(obj)
       .then(results => {
@@ -21,7 +21,7 @@ describe('product routes', () => {
   });
 
   it('should get() a product', () => {
-    const obj = { name: 'test', quantity: 10 };
+    const obj = { name: 'test', quantity: 10, category: 'test' };
     return mockRequest.post('/api/v1/products')
       .send(obj)
       .then(results => {
@@ -35,7 +35,7 @@ describe('product routes', () => {
   });
 
   it('should post a product', () => {
-    const obj = { name: 'test', quantity: 10 };
+    const obj = { name: 'test', quantity: 10, category: 'test' };
     return mockRequest.post('/api/v1/products')
       .send(obj)
       .then(results => {
@@ -46,7 +46,7 @@ describe('product routes', () => {
   });
 
   it('should update a product', () => {
-    const obj = { name: 'test', quantity: 10 };
+    const obj = { name: 'test', quantity: 10, category: 'test' };
     let updated = { name: 'newTest', quantity: 1 };
 
     return mockRequest.post('/api/v1/products')
@@ -63,7 +63,7 @@ describe('product routes', () => {
   });
 
   it('should delete a product', () => {
-    const obj = { name: 'test', quantity: 10 };
+    const obj = { name: 'test', quantity: 10, category: 'test' };
     return mockRequest.post('/api/v1/products')
       .send(obj)
       .then(results => {

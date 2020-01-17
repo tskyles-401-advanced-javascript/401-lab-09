@@ -6,7 +6,6 @@ const mockRequest = supergoose(server);
 
 describe('server', () => {
   
-  it('should');
   it('should give 404 error on bad route', () => {
     return mockRequest.get('/wrong')
       .then(result => {
